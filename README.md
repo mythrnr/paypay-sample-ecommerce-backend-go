@@ -1,9 +1,9 @@
-# paypay-sample-ecommerce-backend-go
+# Go SDK Implementation
 
 [日本語](./README.jp.md)
 
 - ⚠️ This sample is **Unofficial**. ⚠️
-- Sample repository to use PayPay Open Payment API SDK for Go.
+- Sample repository to use [PayPay Open Payment API SDK for Go](https://github.com/mythrnr/paypayopa-sdk-go).
 - Server is ported from [paypay/paypay-sample-ecommerce-backend-php](https://github.com/paypay/paypay-sample-ecommerce-backend-php).
 - Use repository [paypay/paypay-sample-ecommerce-frontend](https://github.com/paypay/paypay-sample-ecommerce-frontend) for Frontend.
 

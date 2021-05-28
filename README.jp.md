@@ -3,7 +3,7 @@
 [English](./README.md)
 
 - ⚠️ このサンプルは **非公式** . ⚠️
-- PayPay Open Payment API の Go 用 SDK のサンプルリポジトリ.
+- [PayPay Open Payment API の Go 用 SDK](https://github.com/mythrnr/paypayopa-sdk-go) のサンプルリポジトリ.
 - 実装は [paypay/paypay-sample-ecommerce-backend-php](https://github.com/paypay/paypay-sample-ecommerce-backend-php) を移植したもの.
 - フロントエンドは [paypay/paypay-sample-ecommerce-frontend](https://github.com/paypay/paypay-sample-ecommerce-frontend) を利用する.
 

@@ -17,7 +17,7 @@ import (
 
 func main() {
 	wp := paypayopa.NewWebPayment(
-		paypayopa.NewCredential(
+		paypayopa.NewCredentials(
 			paypayopa.EnvSandbox,
 			os.Getenv("API_KEY"),
 			os.Getenv("API_SECRET"),

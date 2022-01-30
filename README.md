@@ -29,7 +29,7 @@ make serve
 
 You should now have the dev server running on http://localhost:5000
 
-__⚠️NOTICE: If you run on Mac OS Monterey,
+__⚠️ NOTICE: If you run on Mac OS Monterey,
 you need to change port or turn off AirPlay receiver.__
 
 ## CLI to Refund Operation

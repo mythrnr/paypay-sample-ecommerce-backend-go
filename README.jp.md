@@ -29,7 +29,7 @@ make serve
 
 http://localhost:5000 で動作確認ができる.
 
-__⚠️NOTICE: Mac OS Monterey 以降は AirPlay receiver が 5000 番を使用する為,
+__⚠️ NOTICE: Mac OS Monterey 以降は AirPlay receiver が 5000 番を使用する為,
 ポート番号を変えるか AirPlay receiver をオフにする必要がある.__
 
 ## CLI to Refund Operation

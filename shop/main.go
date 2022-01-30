@@ -34,6 +34,9 @@ func main() {
 	router.GET("/order-status/:merchantPaymentId", orderStatus(wp))
 
 	log.Print("Server start")
+
+	// NOTICE: If you run on Mac OS Monterey,
+	// you need to change port or turn off AirPlay Receiver.
 	log.Fatal(http.ListenAndServe(":5000", router))
 }
 

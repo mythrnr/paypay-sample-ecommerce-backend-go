@@ -25,14 +25,14 @@ linters-settings:
     max-decl-lines: 1
     max-decl-chars: 60
   lll:
-    line-length: 80
+    line-length: 100
     tab-width: 4
   makezero:
     always: true
   misspell:
     locale: "US"
     ignore-words:
-      - "someword"
+      - "some_word"
   nestif:
     min-complexity: 4
   staticcheck:
@@ -48,10 +48,19 @@ linters:
     - "gomnd"
     - "lll"
     # ---- deprecated ---- #
+    - "deadcode"
+    - "exhaustivestruct"
     - "golint"
+    - "ifshort"
     - "interfacer"
     - "maligned"
+    - "nosnakecase"
+    - "rowserrcheck"
     - "scopelint"
+    - "sqlclosecheck"
+    - "structcheck"
+    - "varcheck"
+    - "wastedassign"
     # -------------------- #
   presets:
     - "bugs"

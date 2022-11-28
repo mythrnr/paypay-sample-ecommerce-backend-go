@@ -25,10 +25,9 @@ nancy:
 .PHONY: spell-check
 spell-check:
 	# npm install -g cspell@latest
-	cspell lint --config .vscode/cspell.json ".*"; \
-	cspell lint --config .vscode/cspell.json "**/.*"; \
-	cspell lint --config .vscode/cspell.json ".{github,vscode}/**/*"; \
-	cspell lint --config .vscode/cspell.json ".{github,vscode}/**/.*"; \
+	cspell lint --config .vscode/cspell.json ".*" && \
+	cspell lint --config .vscode/cspell.json "**/.*" && \
+	cspell lint --config .vscode/cspell.json ".{github,vscode}/**/*" && \
 	cspell lint --config .vscode/cspell.json "**"
 
 .PHONY: tidy

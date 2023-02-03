@@ -29,8 +29,8 @@ make serve
 
 You should now have the dev server running on http://localhost:5000
 
-__⚠️ NOTICE: If you run on Mac OS Monterey,
-you need to change port or turn off AirPlay receiver.__
+**⚠️ NOTICE: If you run on Mac OS Monterey,
+you need to change port or turn off AirPlay receiver.**
 
 ## CLI to Refund Operation
 
@@ -47,3 +47,4 @@ Enter refund amount: 100
 ## Requirements
 
 - Go 1.13 or above.
+- Docker (for Development)

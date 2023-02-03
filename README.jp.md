@@ -29,8 +29,8 @@ make serve
 
 http://localhost:5000 で動作確認ができる.
 
-__⚠️ NOTICE: Mac OS Monterey 以降は AirPlay receiver が 5000 番を使用する為,
-ポート番号を変えるか AirPlay receiver をオフにする必要がある.__
+**⚠️ NOTICE: Mac OS Monterey 以降は AirPlay receiver が 5000 番を使用する為,
+ポート番号を変えるか AirPlay receiver をオフにする必要がある.**
 
 ## CLI to Refund Operation
 
@@ -47,3 +47,4 @@ Enter refund amount: 100
 ## Requirements
 
 - Go 1.13 以上.
+- Docker (開発時)

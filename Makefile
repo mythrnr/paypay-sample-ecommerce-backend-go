@@ -2,6 +2,29 @@ ifndef VERBOSE
 MAKEFLAGS += --silent
 endif
 
+.PHONY: clean
+clean:
+	rm -rf .cache/*
+
+.PHONY: fmt
+fmt:
+	go fmt ./...
+
+.PHONY: lint
+lint:
+	docker pull golangci/golangci-lint:latest > /dev/null \
+	&& mkdir -p .cache/golangci-lint \
+	&& docker run --rm \
+		-v $(shell pwd):/app \
+		-v $(shell pwd)/.cache:/root/.cache \
+		-w /app golangci/golangci-lint:latest golangci-lint run ./...
+
+.PHONY: nancy
+nancy:
+	docker pull sonatypecommunity/nancy:latest > /dev/null \
+	&& go list -buildvcs=false -deps -json ./... \
+	| docker run --rm -i sonatypecommunity/nancy:latest sleuth
+
 .PHONY: refund
 refund:
 	go run cmd/refund/main.go
@@ -10,25 +33,13 @@ refund:
 serve:
 	go run shop/main.go
 
-.PHONY: fmt
-fmt:
-	go fmt ./...
-
-.PHONY: lint
-lint:
-	golangci-lint run ./...
-
-.PHONY: nancy
-nancy:
-	go list -json -m all | nancy sleuth
-
 .PHONY: spell-check
 spell-check:
-	# npm install -g cspell@latest
-	cspell lint --config .vscode/cspell.json ".*" && \
-	cspell lint --config .vscode/cspell.json "**/.*" && \
-	cspell lint --config .vscode/cspell.json ".{github,vscode}/**/*" && \
-	cspell lint --config .vscode/cspell.json "**"
+	docker pull ghcr.io/streetsidesoftware/cspell:latest > /dev/null \
+	&& docker run --rm \
+		-v $(shell pwd):/workdir \
+		ghcr.io/streetsidesoftware/cspell:latest \
+			--config .vscode/cspell.json "**"
 
 .PHONY: tidy
 tidy:

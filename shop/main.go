@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"log"
 	"net/http"
 	"os"
@@ -42,7 +42,7 @@ func main() {
 
 type options struct{}
 
-func (o *options) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+func (o *options) ServeHTTP(w http.ResponseWriter, _ *http.Request) {
 	setHeader(w)
 }
 
@@ -72,11 +72,11 @@ func createQR(wp *paypayopa.WebPayment) func(http.ResponseWriter, *http.Request,
 		} `json:"amount"`
 	}
 
-	return func(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	return func(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		setHeader(w)
 
 		body := &request{}
-		b, _ := ioutil.ReadAll(r.Body)
+		b, _ := io.ReadAll(r.Body)
 
 		if err := json.Unmarshal(b, body); err != nil {
 			fmt.Fprint(w, `{ "errors": [{
@@ -90,7 +90,7 @@ func createQR(wp *paypayopa.WebPayment) func(http.ResponseWriter, *http.Request,
 		}
 
 		merchantPaymentID := uuid.NewString()
-		orders := make([]*paypayopa.MerchantOrderItem, 0, 0)
+		orders := make([]*paypayopa.MerchantOrderItem, 0)
 
 		for _, o := range body.OrderItems {
 			orders = append(orders, &paypayopa.MerchantOrderItem{
@@ -182,7 +182,7 @@ func orderStatus(wp *paypayopa.WebPayment) func(http.ResponseWriter, *http.Reque
 	}
 }
 
-func cakes(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func cakes(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
 	setHeader(w)
 
 	fmt.Fprint(w, `[{

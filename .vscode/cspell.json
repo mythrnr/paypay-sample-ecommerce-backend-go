@@ -22,10 +22,12 @@
     "darkforest",
     "darkforestcake",
     "deadcode",
+    "depguard",
     "dupl",
     "ecommerce",
     "errcheck",
     "exhaustivestruct",
+    "exhaustruct",
     "forbidigo",
     "funlen",
     "gocognit",
@@ -60,6 +62,7 @@
     "testpackage",
     "unimported",
     "varcheck",
+    "varnamelen",
     "wastedassign"
   ]
 }

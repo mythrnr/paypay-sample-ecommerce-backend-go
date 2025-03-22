@@ -38,6 +38,7 @@
     "golangci",
     "golint",
     "gomnd",
+    "gosec",
     "httprouter",
     "ifndef",
     "ifshort",
@@ -59,10 +60,12 @@
     "sqlclosecheck",
     "staticcheck",
     "structcheck",
+    "tenv",
     "testpackage",
     "unimported",
     "varcheck",
     "varnamelen",
-    "wastedassign"
+    "wastedassign",
+    "wrapcheck"
   ]
 }

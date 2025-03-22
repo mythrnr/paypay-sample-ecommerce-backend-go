@@ -1,7 +1,6 @@
-# see: https://github.com/golangci/golangci-lint/blob/master/.golangci.example.yml
+# see: https://golangci-lint.run/usage/configuration/
 run:
-  skip-dirs:
-    - ".vscode"
+  go: "1.24"
 
 output:
   sort-results: true
@@ -21,9 +20,11 @@ linters-settings:
     keywords:
       - "TODO"
       - "FIXME"
-  ifshort:
-    max-decl-lines: 1
-    max-decl-chars: 60
+  gosec:
+    excludes:
+      - "G401"
+      - "G404"
+      - "G501"
   lll:
     line-length: 100
     tab-width: 4
@@ -33,10 +34,14 @@ linters-settings:
     locale: "US"
     ignore-words:
       - "some_word"
+  mnd:
+    ignored-functions:
+      - "strconv.FormatInt"
+      - "strconv.ParseFloat"
+      - "strconv.ParseInt"
+      - "strconv.ParseUint"
   nestif:
     min-complexity: 4
-  staticcheck:
-    go: "1.22"
   testpackage:
     skip-regexp: "_inner_test.go"
 
@@ -44,34 +49,13 @@ linters:
   disable:
     - "depguard"
     - "exhaustruct"
-    - "forbidigo"
-    - "funlen"
-    - "gofumpt"
-    - "gomnd"
-    - "lll"
+    - "tagliatelle"
     - "varnamelen"
+    - "wrapcheck"
     # ---- deprecated ---- #
-    - "deadcode"
-    - "exhaustivestruct"
-    - "golint"
-    - "ifshort"
-    - "interfacer"
-    - "maligned"
-    - "nosnakecase"
-    - "rowserrcheck"
-    - "scopelint"
-    - "sqlclosecheck"
-    - "structcheck"
-    - "varcheck"
-    - "wastedassign"
+    - "tenv"
     # -------------------- #
-  presets:
-    - "bugs"
-    - "complexity"
-    - "format"
-    - "performance"
-    - "style"
-    - "unused"
+  enable-all: true
   fast: false
 
 issues:
